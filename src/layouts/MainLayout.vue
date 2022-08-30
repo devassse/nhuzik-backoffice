@@ -2,86 +2,108 @@
   <q-layout view="lHh Lpr lFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          @click="toggleLeftDrawer"
-        />
+        <q-btn flat dense round icon="menu" aria-label="Menu" @click="toggleLeftDrawer" />
 
-        <q-toolbar-title> Quasar App </q-toolbar-title>
+        <q-toolbar-title></q-toolbar-title>
+        <div>
+          <a href="#">
+            <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+              <path fill="#fff"
+                d="M16,17V14H9V10H16V7L21,12L16,17M14,2A2,2 0 0,1 16,4V6H14V4H5V20H14V18H16V20A2,2 0 0,1 14,22H5A2,2 0 0,1 3,20V4A2,2 0 0,1 5,2H14Z" />
+            </svg>
+          </a>
+        </div>
 
-        <div>Quasar v{{ $q.version }}</div>
       </q-toolbar>
+      <div class="q-px-lg q-pt-xs">
+        <div class="text-h3"> Nhuzik</div>
+        <div class="text-h5">Painel de Administração </div>
+      </div>
     </q-header>
 
-    <q-drawer
-      v-model="leftDrawerOpen"
-      show-if-above
-      bordered
-      :width="270"
-      :breakpoint="400"
-    >
-      <q-scroll-area
-        style="
-          height: calc(100% - 150px);
-          margin-top: 150px;
+    <q-drawer v-model="leftDrawerOpen" show-if-above bordered :width="270" :breakpoint="400">
+      <q-scroll-area style="
+          height: calc(100% - 135px);
+          margin-top: 135px;
           border-right: 1px solid #ddd;
-        "
-      >
+        ">
         <q-list padding>
           <q-list>
-            <EssentialLink
-              v-for="link in essentialLinks"
-              :key="link.title"
-              v-bind="link"
-            />
-            <q-item-label header> Essential Links </q-item-label>
+            <q-item-label header> Menus de Administração </q-item-label>
           </q-list>
-          <q-item clickable v-ripple>
+          <q-item active clickable v-ripple exact>
             <q-item-section avatar>
               <q-icon name="inbox" />
             </q-item-section>
 
-            <q-item-section> Inbox </q-item-section>
+            <q-item-section>
+              <q-item-label>Artistas</q-item-label>
+              <q-item-label caption>Todos Artistas na Plataforma</q-item-label>
+            </q-item-section>
           </q-item>
 
-          <q-item active clickable v-ripple>
+          <q-item clickable v-ripple exact>
             <q-item-section avatar>
               <q-icon name="star" />
             </q-item-section>
 
-            <q-item-section> Star </q-item-section>
+            <q-item-section>
+              <q-item-label>Músicas</q-item-label>
+              <q-item-label caption>Trabalhos artísticos</q-item-label>
+            </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple exact>
             <q-item-section avatar>
               <q-icon name="send" />
             </q-item-section>
 
-            <q-item-section> Send </q-item-section>
+            <q-item-section>
+              <q-item-label>Discografias</q-item-label>
+              <q-item-label caption>Colecções dos Artistass</q-item-label>
+            </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple>
+          <q-item clickable v-ripple exact>
             <q-item-section avatar>
               <q-icon name="drafts" />
             </q-item-section>
 
-            <q-item-section> Drafts </q-item-section>
+            <q-item-section>
+              <q-item-label>Bibliografias</q-item-label>
+              <q-item-label caption>Histórias de inspiração</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-list>
+            <q-item-label header> Definições da Plataforma </q-item-label>
+          </q-list>
+          <q-item clickable v-ripple exact>
+            <q-item-section avatar>
+              <q-icon name="drafts" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>Utilizadores</q-item-label>
+              <q-item-label caption>Atribuição de privilégios</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item clickable v-ripple exact>
+            <q-item-section avatar>
+              <q-icon name="drafts" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>Visualização</q-item-label>
+              <q-item-label caption>Temas e Look & Feel</q-item-label>
+            </q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
 
-      <q-img
-        class="absolute-top"
-        src="https://cdn.quasar.dev/img/material.png"
-        style="height: 150px"
-      >
+      <q-img class="absolute-top" :src="cover" style="height: 135px">
         <div class="absolute-bottom bg-transparent">
           <q-avatar size="56px" class="q-mb-sm">
-            <img src="https://cdn.quasar.dev/img/boy-avatar.png" />
+            <img :src="profile" />
           </q-avatar>
           <div class="text-weight-bold">João Devson Mucavel</div>
           <div>@devasse</div>
@@ -97,65 +119,18 @@
 
 <script>
 import { defineComponent, ref } from "vue";
-import EssentialLink from "components/EssentialLink.vue";
-
-const linksList = [
-  {
-    title: "Docs",
-    caption: "quasar.dev",
-    icon: "school",
-    link: "https://quasar.dev",
-  },
-  {
-    title: "Github",
-    caption: "github.com/quasarframework",
-    icon: "code",
-    link: "https://github.com/quasarframework",
-  },
-  {
-    title: "Discord Chat Channel",
-    caption: "chat.quasar.dev",
-    icon: "chat",
-    link: "https://chat.quasar.dev",
-  },
-  {
-    title: "Forum",
-    caption: "forum.quasar.dev",
-    icon: "record_voice_over",
-    link: "https://forum.quasar.dev",
-  },
-  {
-    title: "Twitter",
-    caption: "@quasarframework",
-    icon: "rss_feed",
-    link: "https://twitter.quasar.dev",
-  },
-  {
-    title: "Facebook",
-    caption: "@QuasarFramework",
-    icon: "public",
-    link: "https://facebook.quasar.dev",
-  },
-  {
-    title: "Quasar Awesome",
-    caption: "Community Quasar projects",
-    icon: "favorite",
-    link: "https://awesome.quasar.dev",
-  },
-];
+import profile from '../assets/img/devasse.jpg'
+import cover from '../assets/img/cover.jpg'
 
 export default defineComponent({
   name: "MainLayout",
-
-  components: {
-    EssentialLink,
-  },
 
   setup() {
     const leftDrawerOpen = ref(false);
 
     return {
-      essentialLinks: linksList,
+      profile,
+      cover,
       leftDrawerOpen,
       toggleLeftDrawer() {
         leftDrawerOpen.value = !leftDrawerOpen.value;
