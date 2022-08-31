@@ -1,1 +1,14 @@
 // app global css in SCSS form
+.artist-card {
+  width: 100%;
+  max-width: 350px;
+}
+
+.artist-cover {
+  height: 120px;
+  filter: grayscale(50%);
+}
+
+.q-card {
+  border-radius: 0;
+}
