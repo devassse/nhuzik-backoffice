@@ -1,15 +1,18 @@
 // app global css in SCSS form
 .artist-card {
-  width: 30%;
-  max-width: 350px;
-  min-width: 300px;
+  width: 25%;
+  max-width: 250px;
+  min-width: 200px;
 }
 
 .artist-cover {
-  height: 120px;
+  height: 100px;
   filter: grayscale(50%);
 }
 
 .q-card {
   border-radius: 0;
+}
+.justify-center {
+  justify-content: center;
 }

@@ -1,15 +1,15 @@
 <template>
-  <q-page class="flex q-pl-sm">
+  <q-page class="flex q-pl-sm justify-center">
 
     <q-card class="artist-card q-mx-md q-mt-lg" v-for="i in 10" :key="i">
       <q-img class="artist-cover" src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
-      <q-item-section class="absolute" style="top: 24%; right: 10px;">
+      <q-item-section class="absolute" style="top: 21%; right: 10px;">
         <q-avatar>
           <img src="https://cdn.quasar.dev/img/boy-avatar.png">
         </q-avatar>
       </q-item-section>
 
-      <q-card-section>
+      <q-card-section class="q-pb-sm">
         <div class="row no-wrap items-center">
           <div class="col text-h6 ellipsis">
             <q-label>Xinduminguana</q-label>
@@ -23,9 +23,9 @@
 
       <q-card-section class="q-pt-none">
         <div>
-          Breve descrição ou excerto da histório do Artista, mais informação é encontrada clicando o Botão abaixo...
+          Breve descrição ou excerto da histório do Artista...
         </div>
-        <q-rating v-model="stars" :max="5" size="32px" />
+        <rating-stars></rating-stars>
       </q-card-section>
 
       <q-separator />
@@ -42,11 +42,15 @@
 
 <script>
 import { defineComponent, ref } from 'vue'
+import RatingStars from 'src/components/RatingStars.vue'
 
 export default defineComponent({
+  components: {
+    RatingStars
+  },
   setup() {
     return {
-      stars: ref(4)
+
     }
   }
 })

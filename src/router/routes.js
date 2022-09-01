@@ -18,6 +18,10 @@ const routes = [
         path: "/settings",
         component: () => import("src/pages/AppSettings.vue"),
       },
+      {
+        path: "/awards",
+        component: () => import("src/pages/MozAwards.vue"),
+      },
     ],
   },
 

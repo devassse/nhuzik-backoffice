@@ -1,9 +1,9 @@
 <template>
-  <q-page class="flex q-pl-sm">
+  <q-page class="flex q-pl-sm justify-center ">
 
     <q-card class="artist-card q-mx-md q-mt-lg" v-for="i in 10" :key="i">
       <q-img class="artist-cover" src="https://cdn.quasar.dev/img/chicken-salad.jpg" />
-      <q-item-section class="absolute" style="top: 16%; right: 10px;">
+      <q-item-section class="absolute" style="top: 14%; right: 10px;">
         <q-avatar>
           <img src="https://cdn.quasar.dev/img/boy-avatar.png">
         </q-avatar>
@@ -48,6 +48,7 @@ export default defineComponent({
 <style lang="scss" scoped>
 audio {
   filter: sepia(20%) saturate(70%) grayscale(1) contrast(99%) invert(12%);
+  width: 100%;
   height: 20px;
 
   &::-webkit-media-controls-enclosure {

@@ -34,7 +34,7 @@
           </q-list>
           <q-item to="/" clickable v-ripple exact>
             <q-item-section avatar>
-              <q-icon name="inbox" />
+              <q-icon name="groups" />
             </q-item-section>
 
             <q-item-section>
@@ -45,7 +45,7 @@
 
           <q-item to="/musics" clickable v-ripple exact>
             <q-item-section avatar>
-              <q-icon name="star" />
+              <q-icon name="library_music" />
             </q-item-section>
 
             <q-item-section>
@@ -56,7 +56,7 @@
 
           <q-item to="/discography" clickable v-ripple exact>
             <q-item-section avatar>
-              <q-icon name="send" />
+              <q-icon name="table_rows" />
             </q-item-section>
 
             <q-item-section>
@@ -67,7 +67,7 @@
 
           <q-item to="/biography" clickable v-ripple exact>
             <q-item-section avatar>
-              <q-icon name="drafts" />
+              <q-icon name="table_chart" />
             </q-item-section>
 
             <q-item-section>
@@ -76,11 +76,24 @@
             </q-item-section>
           </q-item>
           <q-list>
+            <q-item-label header> MMA (Mozambique Music Awards) </q-item-label>
+          </q-list>
+          <q-item to="/awards" clickable v-ripple exact>
+            <q-item-section avatar>
+              <q-icon name="auto_graph" />
+            </q-item-section>
+
+            <q-item-section>
+              <q-item-label>Awards</q-item-label>
+              <q-item-label caption>Gestão dos Awards</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-list>
             <q-item-label header> Definições da Plataforma </q-item-label>
           </q-list>
           <q-item to="/users" clickable v-ripple exact>
             <q-item-section avatar>
-              <q-icon name="drafts" />
+              <q-icon name="manage_accounts" />
             </q-item-section>
 
             <q-item-section>
@@ -90,11 +103,11 @@
           </q-item>
           <q-item to="settings" clickable v-ripple exact>
             <q-item-section avatar>
-              <q-icon name="drafts" />
+              <q-icon name="settings" />
             </q-item-section>
 
             <q-item-section>
-              <q-item-label>Visualização</q-item-label>
+              <q-item-label>Configurações</q-item-label>
               <q-item-label caption>Temas e Look & Feel</q-item-label>
             </q-item-section>
           </q-item>
